@@ -15,7 +15,7 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        //
+        return Business::all();
     }
 
     /**
@@ -26,40 +26,40 @@ class BusinessController extends Controller
      */
     public function store(StoreBusinessRequest $request)
     {
-        //
+        return Business::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Business  $business
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Business $business)
+    public function show($id)
     {
-        //
+        return Business::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateBusinessRequest  $request
-     * @param  \App\Models\Business  $business
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBusinessRequest $request, Business $business)
+    public function update(UpdateBusinessRequest $request, $id)
     {
-        //
+        return Business::findOrFail($id)->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Business  $business
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Business $business)
+    public function destroy(int $id)
     {
-        //
+        return Business::destroy($id);
     }
 }

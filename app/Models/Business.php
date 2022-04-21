@@ -23,4 +23,6 @@ use Illuminate\Database\Eloquent\Model;
 class Business extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'name', 'about', 'url', 'address', 'phone', 'hours'];
 }
