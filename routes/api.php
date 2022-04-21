@@ -6,6 +6,8 @@ use App\Http\Controllers\PersonController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\BusinessController;
 
+require __DIR__.'/auth.php';
+
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return response()->json(['id' => $request->user()->id, 'name' => $request->user()->name], 200);
 });
