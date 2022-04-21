@@ -9,7 +9,7 @@ class Person extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['published', 'first_name', 'last_name', 'about', 'interests'];
+    protected $fillable = ['user_id', 's3_url', 'published', 'first_name', 'last_name', 'about', 'interests'];
 
     public function user()
     {
