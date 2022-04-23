@@ -9,14 +9,16 @@ use App\Http\Controllers\BusinessController;
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return response()->json(['id' => $request->user()->id, 'name' => $request->user()->name], 200);
+    return response()->json(['id' => $request->user()->id]);
 });
 
 Route::controller(PersonController::class)->group(function () {
     Route::get('/people', 'index');
     Route::post('/people', 'store');
+    Route::post('/people/image', 'uploadImage');
     Route::get('/people/{id}', 'show');
     Route::put('/people/{id}', 'update');
+    Route::patch('/people/publish/{id}', 'publish');
     Route::delete('/people/{id}', 'destroy');
 });
 
